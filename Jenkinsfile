@@ -6,7 +6,6 @@ pipeline {
         stage('One') {
           steps {
             sh 'echo "Hello"'
-            catchError()
             retry(count: 2)
           }
         }
