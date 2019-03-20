@@ -5,8 +5,11 @@ pipeline {
       parallel {
         stage('One') {
           steps {
+            retry(count: 2) {
+              sh 'java -version'
+            }
+
             sh 'echo "Hello"'
-            retry(count: 2)
           }
         }
         stage('OneSec') {
